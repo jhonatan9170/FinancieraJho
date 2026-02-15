@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/documentLoginFragment"
-        android:name="com.example.financierajho.DocumentLoginFragment"
+        android:name="com.example.financierajho.Login.DocumentLoginFragment"
         android:label="fragment_document_login"
         tools:layout="@layout/fragment_document_login" />
 </navigation>
