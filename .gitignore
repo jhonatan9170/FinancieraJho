@@ -1,0 +1,207 @@
+# ------------------------------
+
+# Android / Gradle
+
+# ------------------------------
+
+.gradle/
+build/
+**/build/
+local.properties
+.cxx/
+.externalNativeBuild/
+
+# Gradle cache
+
+.gradle/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Kotlin
+
+*.kotlin_module
+
+# ------------------------------
+
+# Android Studio / IntelliJ
+
+# ------------------------------
+
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Specific IDEA files
+
+.idea/caches
+.idea/libraries
+.idea/modules.xml
+.idea/workspace.xml
+.idea/navEditor.xml
+.idea/assetWizardSettings.xml
+.idea/deploymentTargetDropDown.xml
+
+# Layout inspector
+
+captures/
+
+# ------------------------------
+
+# Generated files
+
+# ------------------------------
+
+/app/release/
+/app/debug/
+outputs/
+generated/
+intermediates/
+
+# ViewBinding / DataBinding
+
+**/databinding_base_class_log_artifact/**
+**/tmp/**
+**/kapt/
+**/ksp/
+
+# ------------------------------
+
+# APK / AAB
+
+# ------------------------------
+
+*.apk
+*.ap_
+*.aab
+
+# ------------------------------
+
+# Signing keys (CRITICAL)
+
+# ------------------------------
+
+*.jks
+*.keystore
+*.keystore.jks
+keystore.properties
+
+# ------------------------------
+
+# NDK
+
+# ------------------------------
+
+obj/
+*.so
+
+# ------------------------------
+
+# Log files
+
+# ------------------------------
+
+*.log
+
+# ------------------------------
+
+# MacOS (important for you)
+
+# ------------------------------
+
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+
+._*
+
+# Files that might appear in the root
+
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+
+# Directories potentially created on remote AFP share
+
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# ------------------------------
+
+# Emulator
+
+# ------------------------------
+
+*.lock
+*.hprof
+
+# ------------------------------
+
+# Google Services
+
+# (You usually don't upload real credentials)
+
+# ------------------------------
+
+google-services.json
+*.env
+.env
+.env.local
+
+# ------------------------------
+
+# Firebase Crashlytics
+
+# ------------------------------
+
+com_crashlytics_export_strings.xml
+
+# ------------------------------
+
+# Proguard
+
+# ------------------------------
+
+proguard/
+mapping.txt
+
+# ------------------------------
+
+# Room Database (schemas optional)
+
+# ------------------------------
+
+schemas/
+
+# ------------------------------
+
+# Misc
+
+# ------------------------------
+
+Thumbs.db
+*.orig
+*.rej
+*.swp
+*.swo
+*.tmp
+*.bak
+
+# VS Code (if you ever open it there)
+
+.vscode/
+
+# ------------------------------
+
+# Kotlin Native
+
+# ------------------------------
+
+konan/
