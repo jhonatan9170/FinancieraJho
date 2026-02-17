@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/loginDocumentFragment"
-        android:name="com.example.financierajho.LoginDocumentFragment"
+        android:name="com.example.financierajho.Login.LoginDocumentFragment"
         android:label="LoginDocumentFragment" />
 </navigation>
