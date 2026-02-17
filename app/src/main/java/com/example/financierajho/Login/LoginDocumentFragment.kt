@@ -25,8 +25,8 @@ class LoginDocumentFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val document = binding.dniEditTxt.text.toString()
         binding.nextBtn.setOnClickListener {
+            val document = binding.dniEditTxt.text.toString()
             val prefs = requireContext().getSharedPreferences("personal_data", Context.MODE_PRIVATE)
             prefs.edit().putString("DOCUMENT",document).apply()
             val intent = Intent(requireActivity(),HomeActivity::class.java)
