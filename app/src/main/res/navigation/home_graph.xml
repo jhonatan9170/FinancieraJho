@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.financierajho.Home.homeFragment"
+        android:name="com.example.financierajho.ui.Home.homeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
 </navigation>

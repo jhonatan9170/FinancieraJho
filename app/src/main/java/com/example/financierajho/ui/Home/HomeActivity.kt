@@ -1,8 +1,9 @@
-package com.example.financierajho.Home
+package com.example.financierajho.ui.Home
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.navigation.findNavController
 import com.example.financierajho.R
 import com.example.financierajho.databinding.ActivityHomeBinding
 import com.example.financierajho.databinding.ActivityLoginBinding
