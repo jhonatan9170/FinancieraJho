@@ -61,7 +61,7 @@ class LoginFragment : Fragment() {
     }
     private fun login(){
 
-        val requestBody = LoginRequestBody(args.dni, binding.claveEditText.toString())
+        val requestBody = LoginRequestBody(args.dni, binding.claveEditText.text.toString())
         viewLifecycleOwner.lifecycleScope.launch {
             try {
 
