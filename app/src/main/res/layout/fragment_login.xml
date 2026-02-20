@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Login.LoginFragment"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    >
+    
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/icono_avatar"
+        android:layout_marginVertical="20dp"
+        />
+<TextView
+    android:id="@+id/dniText"
+    style="@style/TextView.Title"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="4874043"
+    android:layout_gravity="center"
+    android:layout_marginVertical="15dp"
+
+    />
+    
+
+    <Button
+        android:id="@+id/cambiarUserBtn"
+        style="@style/Button.Outline"
+        android:layout_width="167dp"
+        android:layout_height="44dp"
+        android:text=" Cambiar usuario"
+        android:layout_gravity="center"
+        android:layout_marginVertical="15dp"
+        >
+
+    </Button>
+    <EditText
+        android:id="@+id/claveEditText"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:hint="Ingresa tu clave digital"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="15dp"
+        />
+    <Button
+        android:layout_marginVertical="10dp"
+        android:id="@+id/loginBtn"
+        style="@style/Button.Filled"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginHorizontal="20dp"
+        android:text=" Cambiar usuario"
+        />
+
+</LinearLayout>
