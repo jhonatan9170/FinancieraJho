@@ -2,6 +2,7 @@ package com.example.financierajho.Login
 
 import android.app.Activity
 import android.content.Intent
+import androidx.navigation.findNavController
 import com.example.financierajho.Home.HomeActivity
 
 class LoginRouter(private val activity: Activity) {
@@ -10,4 +11,6 @@ class LoginRouter(private val activity: Activity) {
         activity.startActivity(intent)
         activity.finish()
     }
+
+
 }

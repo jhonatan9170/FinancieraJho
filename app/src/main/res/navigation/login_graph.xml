@@ -9,5 +9,19 @@
         android:id="@+id/documentLoginFragment"
         android:name="com.example.financierajho.Login.DocumentLoginFragment"
         android:label="fragment_document_login"
-        tools:layout="@layout/fragment_document_login" />
+        tools:layout="@layout/fragment_document_login" >
+        <action
+            android:id="@+id/action_documentLoginFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.financierajho.Login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <argument android:name="document"
+            app:argType="string"
+            android:defaultValue=""
+            />
+    </fragment>
 </navigation>
