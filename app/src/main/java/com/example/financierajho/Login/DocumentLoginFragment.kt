@@ -27,8 +27,13 @@ class DocumentLoginFragment : Fragment() {
         return binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val prefs = requireActivity().getSharedPreferences("personal_data", Context.MODE_PRIVATE)
+        val document = prefs.getString("DOCUMENT", "").toString()
         super.onViewCreated(view, savedInstanceState)
-
+        if (document.count() == 8 ) {
+            val action = DocumentLoginFragmentDirections.actionDocumentLoginFragmentToLoginFragment(document)
+            findNavController().navigate(action)
+        }
         binding.nextBtn.setOnClickListener {
             login()
         }
@@ -43,9 +48,6 @@ class DocumentLoginFragment : Fragment() {
         } else {
             Toast.makeText(requireContext(),validator.message,Toast.LENGTH_LONG).show()
         }
-
-        //val prefs = requireContext().getSharedPreferences("personal_data",Context.MODE_PRIVATE)
-        //prefs.edit().putString("DOCUMENT",document).apply()
 
     }
 
