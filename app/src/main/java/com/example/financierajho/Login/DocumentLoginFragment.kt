@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.example.financierajho.Home.HomeActivity
 import com.example.financierajho.databinding.FragmentDocumentLoginBinding
 // S : Single resposability
@@ -37,7 +38,8 @@ class DocumentLoginFragment : Fragment() {
         val document = binding.dniEditTxt.text.toString()
         val validator = DocumentValidator.validate(document)
         if (validator.isValid) {
-            navigation.goToHome()
+            val action = DocumentLoginFragmentDirections.actionDocumentLoginFragmentToLoginFragment(document)
+            findNavController().navigate(action)
         } else {
             Toast.makeText(requireContext(),validator.message,Toast.LENGTH_LONG).show()
         }

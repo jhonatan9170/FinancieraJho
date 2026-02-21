@@ -14,3 +14,16 @@ object DocumentValidator {
     }
 
 }
+
+object PassWordValidator {
+    fun validate(document: String): ValidateDocument {
+        if (document.isEmpty()) {
+            return ValidateDocument(false,"La contraseña no debe estar vacío")
+        }
+        if (document.count() != 6) {
+            return ValidateDocument(false,"La contraseña  tiene que tener 6 digitos")
+        }
+        return ValidateDocument(true, null)
+    }
+
+}
