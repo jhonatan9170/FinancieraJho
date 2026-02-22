@@ -7,14 +7,14 @@
     <fragment
         android:id="@+id/productsFragment"
         android:name="com.example.financierajho.UI.Home.Products.ProductsFragment"
-        android:label="fragment_products"
+        android:label="Productos"
         tools:layout="@layout/fragment_products" />
     <fragment
         android:id="@+id/benefitsFragment"
         android:name="com.example.financierajho.UI.Home.Benefits.BenefitsFragment"
-        android:label="BenefitsFragment" />
+        android:label="Beneficios" />
     <fragment
         android:id="@+id/myAccountFragment"
         android:name="com.example.financierajho.UI.Home.MyAccount.MyAccountFragment"
-        android:label="MyAccountFragment" />
+        android:label="Mi cuenta" />
 </navigation>
