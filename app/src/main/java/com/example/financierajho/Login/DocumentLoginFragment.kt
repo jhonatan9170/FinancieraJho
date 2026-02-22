@@ -18,6 +18,16 @@ class DocumentLoginFragment : Fragment() {
     val binding get() = _binding!!
 
     private lateinit var navigation: LoginRouter
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val prefs = requireActivity().getSharedPreferences("personal_data", Context.MODE_PRIVATE)
+        val document = prefs.getString("DOCUMENT", "").toString()
+        if (document.count() == 8) {
+            val action = DocumentLoginFragmentDirections.actionDocumentLoginFragmentToLoginFragment(document)
+            findNavController().navigate(action)
+        }
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -27,13 +37,8 @@ class DocumentLoginFragment : Fragment() {
         return binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val prefs = requireActivity().getSharedPreferences("personal_data", Context.MODE_PRIVATE)
-        val document = prefs.getString("DOCUMENT", "").toString()
         super.onViewCreated(view, savedInstanceState)
-        if (document.count() == 8 ) {
-            val action = DocumentLoginFragmentDirections.actionDocumentLoginFragmentToLoginFragment(document)
-            findNavController().navigate(action)
-        }
+
         binding.nextBtn.setOnClickListener {
             login()
         }
