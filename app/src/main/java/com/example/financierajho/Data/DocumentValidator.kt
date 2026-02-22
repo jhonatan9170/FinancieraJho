@@ -1,4 +1,4 @@
-package com.example.financierajho.UI.Login
+package com.example.financierajho.Data
 
 data class ValidateDocument (val isValid: Boolean , val message: String?)
 object DocumentValidator {
