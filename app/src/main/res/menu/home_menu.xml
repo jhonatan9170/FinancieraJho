@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/productsFragment"
+        android:icon="@drawable/icono_home"
+        android:title="Productos"
+        />
+    <item
+        android:id="@+id/benefitsFragment"
+        android:icon="@drawable/icono_parati"
+        android:title="Beneficios"
+        />
+    <item
+        android:id="@+id/myAccountFragment"
+        android:icon="@drawable/icono_usuario"
+        android:title="Mi cuenta"
+        />
+</menu>

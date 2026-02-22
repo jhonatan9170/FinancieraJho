@@ -13,4 +13,8 @@
         android:id="@+id/benefitsFragment"
         android:name="com.example.financierajho.UI.Home.Benefits.BenefitsFragment"
         android:label="BenefitsFragment" />
+    <fragment
+        android:id="@+id/myAccountFragment"
+        android:name="com.example.financierajho.UI.Home.MyAccount.MyAccountFragment"
+        android:label="MyAccountFragment" />
 </navigation>
