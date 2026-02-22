@@ -1,7 +1,6 @@
-package com.example.financierajho.Login
+package com.example.financierajho.UI.Login.DocumentLogin
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,7 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
-import com.example.financierajho.Home.HomeActivity
+import com.example.financierajho.UI.Login.DocumentValidator
+import com.example.financierajho.UI.Login.LoginRouter
 import com.example.financierajho.databinding.FragmentDocumentLoginBinding
 // S : Single resposability
 class DocumentLoginFragment : Fragment() {

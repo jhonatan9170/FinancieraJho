@@ -1,4 +1,4 @@
-package com.example.financierajho.Login
+package com.example.financierajho.UI.Login.Login
 
 import android.content.Context
 import android.content.Intent
@@ -11,9 +11,10 @@ import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.financierajho.Home.HomeActivity
+import com.example.financierajho.UI.Home.HomeActivity
 import com.example.financierajho.NetWorking.Login.APIService
 import com.example.financierajho.NetWorking.Login.LoginRequestBody
+import com.example.financierajho.UI.Login.PassWordValidator
 import com.example.financierajho.databinding.FragmentLoginBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

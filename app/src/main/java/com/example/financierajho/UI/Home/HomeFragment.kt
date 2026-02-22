@@ -1,4 +1,4 @@
-package com.example.financierajho.Home
+package com.example.financierajho.UI.Home
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

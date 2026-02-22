@@ -1,4 +1,4 @@
-package com.example.financierajho.Home
+package com.example.financierajho.UI.Home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
