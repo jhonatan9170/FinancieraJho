@@ -2,5 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="blueFinance">#007DBA</color>
+    <color name="grisText">#676F8F</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="blueText">#0E7EE5</color>
 </resources>

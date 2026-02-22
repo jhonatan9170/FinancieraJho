@@ -20,4 +20,24 @@
         <item name="android:textAllCaps"> false </item>
         <item name="strokeColor">@color/blueFinance</item>
     </style>
+    <style name="Products.Card" parent="Widget.MaterialComponents.CardView">
+        <item name="cardCornerRadius">8dp</item>
+        <item name="cardElevation">8dp</item>
+
+    </style>
+    <style name="Title.Card.TextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/blueText</item>
+    </style>
+    <style name="BalanceTitle.Card.TextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/grisText</item>
+    </style>
+    <style name="Balance.Card.TextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/grisText</item>
+    </style>
 </resources>
