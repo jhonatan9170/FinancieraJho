@@ -1,14 +1,11 @@
 package com.example.financierajho.UI.Home.Benefits
-
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebViewClient
-import com.example.financierajho.R
 import com.example.financierajho.databinding.FragmentBenefitsBinding
-import com.example.financierajho.databinding.FragmentHomeBinding
 
 class BenefitsFragment : Fragment() {
     var _binding: FragmentBenefitsBinding? = null

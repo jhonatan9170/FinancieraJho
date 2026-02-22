@@ -3,11 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/home_graph"
-    app:startDestination="@id/homeFragment">
-
+    app:startDestination="@id/productsFragment">
     <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.example.financierajho.UI.Home.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/productsFragment"
+        android:name="com.example.financierajho.UI.Home.Products.ProductsFragment"
+        android:label="fragment_products"
+        tools:layout="@layout/fragment_products" />
+    <fragment
+        android:id="@+id/benefitsFragment"
+        android:name="com.example.financierajho.UI.Home.Benefits.BenefitsFragment"
+        android:label="BenefitsFragment" />
 </navigation>
