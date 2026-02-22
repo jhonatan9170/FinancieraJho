@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
-import com.example.financierajho.UI.Login.DocumentValidator
+import com.example.financierajho.Data.DocumentValidator
 import com.example.financierajho.UI.Login.LoginRouter
 import com.example.financierajho.databinding.FragmentDocumentLoginBinding
 // S : Single resposability

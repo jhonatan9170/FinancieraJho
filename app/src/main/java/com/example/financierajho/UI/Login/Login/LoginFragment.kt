@@ -12,9 +12,10 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.financierajho.UI.Home.HomeActivity
-import com.example.financierajho.NetWorking.Login.APIService
+import com.example.financierajho.NetWorking.APIService
 import com.example.financierajho.NetWorking.Login.LoginRequestBody
-import com.example.financierajho.UI.Login.PassWordValidator
+import com.example.financierajho.Data.PassWordValidator
+import com.example.financierajho.Data.Sesion
 import com.example.financierajho.databinding.FragmentLoginBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -68,13 +69,15 @@ class LoginFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             try {
                 val request = LoginRequestBody(args.document, binding.claveEditText.text.toString())
-            val response = withContext(Dispatchers.IO) {
-                api.login(request)
-            }
-                val prefs = requireActivity().getSharedPreferences("personal_data", Context.MODE_PRIVATE)
-                prefs.edit().putString("NAME",response.usuario.nombres).apply()
-                prefs.edit().putString("DOCUMENT",args.document).apply()
+                val response = withContext(Dispatchers.IO) {
+                    api.login(request)
+                }
+                val prefs =
+                    requireActivity().getSharedPreferences("personal_data", Context.MODE_PRIVATE)
+                prefs.edit().putString("NAME", response.usuario.nombres).apply()
+                prefs.edit().putString("DOCUMENT", args.document).apply()
                 val intent = Intent(requireActivity(), HomeActivity::class.java)
+                Sesion.token = response.token
                 requireActivity().startActivity(intent)
                 requireActivity().finish()
 
