@@ -24,4 +24,18 @@ class AuthRepository {
 
     }
 
+    suspend fun logout(): String? {
+        return try {
+            val response = RetrofitClient.authApi.logout()
+            if (response.isSuccessful && response.body() != null) {
+                response.body()!!.mensaje
+            } else {
+                null
+            }
+
+        } catch (e: Exception){
+            null
+        }
+    }
+
 }

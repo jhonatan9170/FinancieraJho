@@ -1,6 +1,6 @@
 package com.example.financierajho.UI.Home.Products
 
-import com.example.financierajho.NetWorking.Client.Producto
+import com.example.financierajho.NetWorking.Client.Products.Producto
 
 data class ProductModel(val id: Int, val name: String, val balance: String,val isActive: Boolean){
 

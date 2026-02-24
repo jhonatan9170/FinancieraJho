@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.financierajho.Data.Repository.AuthRepository
+import com.example.financierajho.Data.Repository.ClientRepository
 import com.example.financierajho.Data.RetrofitClient
 import com.example.financierajho.Data.Sesion
 import com.example.financierajho.databinding.FragmentProductsBinding
@@ -22,6 +24,7 @@ class ProductsFragment : Fragment() {
 
     private  lateinit var adapter: ProductsAdapter
 
+    val clientRepository = ClientRepository()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -42,20 +45,13 @@ class ProductsFragment : Fragment() {
     private fun getProducts() {
         viewLifecycleOwner.lifecycleScope.launch {
             binding.loaderContainer.visibility = View.VISIBLE
-            try {
-
-                val autorization = " Bearer " + Sesion.token
-                val response = withContext(Dispatchers.IO) {
-                    RetrofitClient.clientApi.getProducts(autorization)
-                }
-                binding.loaderContainer.visibility = View.GONE
-                val products = response.productos.map {
-                    ProductModel(it)
-                }
+            val products = withContext(Dispatchers.IO) {
+                clientRepository.getProducts()
+            }
+            binding.loaderContainer.visibility = View.GONE
+            if (products != null) {
                 adapter.updateList(products)
-
-            } catch(e: Exception) {
-                binding.loaderContainer.visibility = View.GONE
+            }else {
                 Toast.makeText(requireContext(), "Falló servicio", Toast.LENGTH_SHORT).show()
             }
         }

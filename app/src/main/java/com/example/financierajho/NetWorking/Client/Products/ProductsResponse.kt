@@ -1,4 +1,4 @@
-package com.example.financierajho.NetWorking.Client
+package com.example.financierajho.NetWorking.Client.Products
 
 data class ProductsResponse (
     val productos: List<Producto>
