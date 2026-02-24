@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.financierajho.Data.DocumentValidator
+import com.example.financierajho.Data.Repository.UserLocalRepository
 import com.example.financierajho.UI.Login.LoginRouter
 import com.example.financierajho.databinding.FragmentDocumentLoginBinding
 // S : Single resposability
@@ -17,12 +18,11 @@ class DocumentLoginFragment : Fragment() {
     var _binding: FragmentDocumentLoginBinding? = null
     val binding get() = _binding!!
 
-    private lateinit var navigation: LoginRouter
+    val userLocalRepository by lazy { UserLocalRepository(requireContext())}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val prefs = requireActivity().getSharedPreferences("personal_data", Context.MODE_PRIVATE)
-        val document = prefs.getString("DOCUMENT", "").toString()
+        val document = userLocalRepository.document
         if (document.count() == 8) {
             val action = DocumentLoginFragmentDirections.actionDocumentLoginFragmentToLoginFragment(document)
             findNavController().navigate(action)
@@ -33,12 +33,10 @@ class DocumentLoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentDocumentLoginBinding.inflate(inflater, container, false)
-        navigation = LoginRouter(requireActivity())
         return binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding.nextBtn.setOnClickListener {
             login()
         }

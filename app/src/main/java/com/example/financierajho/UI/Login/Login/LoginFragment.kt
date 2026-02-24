@@ -1,6 +1,5 @@
 package com.example.financierajho.UI.Login.Login
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,25 +11,26 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.financierajho.UI.Home.HomeActivity
-import com.example.financierajho.NetWorking.APIService
 import com.example.financierajho.NetWorking.Login.LoginRequestBody
 import com.example.financierajho.Data.PassWordValidator
+import com.example.financierajho.Data.Repository.AuthRepository
+import com.example.financierajho.Data.Repository.UserLocalRepository
+import com.example.financierajho.Data.RetrofitClient
 import com.example.financierajho.Data.Sesion
 import com.example.financierajho.databinding.FragmentLoginBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.Exception
 
-
+//DRY : DONT REPEAT YOURSELF
 class LoginFragment : Fragment() {
 
     var _binding: FragmentLoginBinding? = null
     val binding get() = _binding!!
-
     private val args: LoginFragmentArgs by navArgs()
+    val userLocalRepository by lazy { UserLocalRepository(requireContext())}
+    val authRepository = AuthRepository()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,8 +42,7 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val prefs = requireActivity().getSharedPreferences("personal_data", Context.MODE_PRIVATE)
-        val name = prefs.getString("NAME", "").toString()
+        val name = userLocalRepository.name
         binding.dniText.text = if (name.isEmpty()) args.document else name
         binding.cambiarUserBtn.setOnClickListener {
             findNavController().popBackStack()
@@ -53,39 +52,35 @@ class LoginFragment : Fragment() {
             if (validate.isValid) {
                 login()
             } else {
-                Toast.makeText(requireContext(), validate.message,Toast.LENGTH_SHORT).show()
+                showToast(validate.message.toString())
             }
         }
     }
 
     private fun login() {
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://appmobile.tech/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-        val api = retrofit.create(APIService::class.java)
-
         viewLifecycleOwner.lifecycleScope.launch {
-            try {
-                val request = LoginRequestBody(args.document, binding.claveEditText.text.toString())
-                val response = withContext(Dispatchers.IO) {
-                    api.login(request)
-                }
-                val prefs =
-                    requireActivity().getSharedPreferences("personal_data", Context.MODE_PRIVATE)
-                prefs.edit().putString("NAME", response.usuario.nombres).apply()
-                prefs.edit().putString("DOCUMENT", args.document).apply()
-                val intent = Intent(requireActivity(), HomeActivity::class.java)
-                Sesion.token = response.token
-                requireActivity().startActivity(intent)
-                requireActivity().finish()
-
-            } catch(e: Exception) {
-                Toast.makeText(requireContext(), "Falló servicio",Toast.LENGTH_SHORT).show()
+            val loginData = withContext(Dispatchers.IO) {
+                authRepository.login(args.document, binding.claveEditText.text.toString())
+            }
+            if (loginData.succes) {
+                userLocalRepository.name = loginData.name
+                userLocalRepository.document = loginData.document
+                Sesion.token = loginData.token
+                goToHome()
+            } else {
+                showToast(loginData.message.toString())
             }
         }
+    }
 
+    private fun goToHome(){
+        val intent = Intent(requireActivity(), HomeActivity::class.java)
+        requireActivity().startActivity(intent)
+        requireActivity().finish()
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(requireContext(), message,Toast.LENGTH_SHORT).show()
     }
 
 }
