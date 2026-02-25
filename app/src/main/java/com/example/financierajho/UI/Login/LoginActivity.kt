@@ -1,10 +1,6 @@
 package com.example.financierajho.UI.Login
-
-import android.content.Context
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.financierajho.UI.Home.HomeActivity
 import com.example.financierajho.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
